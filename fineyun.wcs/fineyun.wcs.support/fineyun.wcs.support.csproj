@@ -9,6 +9,8 @@
     <ItemGroup>
       <PackageReference Include="Autofac" Version="6.5.0" />
       <PackageReference Include="FreeSql.Provider.MySqlConnector" Version="3.2.685" />
+      <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+      <PackageReference Include="NLog" Version="5.1.0" />
     </ItemGroup>
 
     <ItemGroup>
