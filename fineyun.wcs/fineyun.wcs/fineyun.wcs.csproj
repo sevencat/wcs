@@ -19,6 +19,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
       <PackageReference Include="CompressedStaticFiles" Version="2.1.0" />
       <PackageReference Include="NLog.Web.AspNetCore" Version="5.2.0" />
       <PackageReference Include="NSwag.AspNetCore" Version="13.18.2" />
@@ -65,6 +66,9 @@
 
     <ItemGroup>
       <ProjectReference Include="..\fineyun.wcs.common\fineyun.wcs.common.csproj" />
+      <ProjectReference Include="..\fineyun.wcs.device\fineyun.wcs.device.csproj" />
+      <ProjectReference Include="..\fineyun.wcs.storage\fineyun.wcs.storage.csproj" />
+      <ProjectReference Include="..\fineyun.wcs.support\fineyun.wcs.support.csproj" />
     </ItemGroup>
 
 </Project>
