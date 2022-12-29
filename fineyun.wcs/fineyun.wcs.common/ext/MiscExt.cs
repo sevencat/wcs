@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace fineyun.common.ext;
+namespace fineyun.wcs.common.ext;
 
 public static class MiscExt
 {

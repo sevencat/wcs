@@ -1,5 +1,5 @@
 using CompressedStaticFiles;
-using fineyun.common.ext;
+using fineyun.wcs.common.ext;
 using Microsoft.Extensions.FileProviders;
 using NJsonSchema.Generation;
 using NLog.Extensions.Logging;

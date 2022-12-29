@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fineyun.wcs", "fineyun.wcs\fineyun.wcs.csproj", "{23FC00CE-9705-40E1-9607-A3BE866110CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fineyun.common", "fineyun.common\fineyun.common.csproj", "{6C769BC4-06EE-4905-9EF8-C6B18BD6A865}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fineyun.wcs.common", "fineyun.wcs.common\fineyun.wcs.common.csproj", "{15DC80EE-0C49-4AFE-9034-8F5890CC174A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,9 +14,9 @@ Global
 		{23FC00CE-9705-40E1-9607-A3BE866110CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23FC00CE-9705-40E1-9607-A3BE866110CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23FC00CE-9705-40E1-9607-A3BE866110CE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6C769BC4-06EE-4905-9EF8-C6B18BD6A865}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6C769BC4-06EE-4905-9EF8-C6B18BD6A865}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6C769BC4-06EE-4905-9EF8-C6B18BD6A865}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6C769BC4-06EE-4905-9EF8-C6B18BD6A865}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15DC80EE-0C49-4AFE-9034-8F5890CC174A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15DC80EE-0C49-4AFE-9034-8F5890CC174A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15DC80EE-0C49-4AFE-9034-8F5890CC174A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15DC80EE-0C49-4AFE-9034-8F5890CC174A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
