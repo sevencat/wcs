@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using fineyun.wcs.common;
 using fineyun.wcs.common.ext;
+using fineyun.wcs.support.db;
 using Microsoft.Extensions.Configuration;
 
 namespace fineyun.wcs.support;
@@ -35,6 +36,8 @@ public class SupportModule : Module
 			.UseConnectionString(FreeSql.DataType.MySql, dbconnstr)
 			.UseAutoSyncStructure(false)
 			.Build();
+		Log.Info("配置使用jsonmap");
+		fsql.UseJsonMap();
 		var dbshow_sql = config["app:db:showsql"].ToInt32OrDefault(0);
 		if (dbshow_sql == 1)
 		{

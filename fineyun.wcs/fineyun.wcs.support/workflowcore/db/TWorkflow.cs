@@ -5,7 +5,7 @@ namespace fineyun.wcs.support.workflowcore.db;
 [Table(Name = "workflowcore_workflow")]
 [Index("IX_Workflow_InstanceId", "InstanceId", true)]
 [Index("IX_Workflow_NextExecution", "NextExecution", false)]
-public class PersistedWorkflow
+public class TWorkflow
 {
 	[Column(IsIdentity = true, IsPrimary = true)]
 	public long PersistenceId { get; set; }
@@ -38,6 +38,6 @@ public class PersistedWorkflow
 	[Column(StringLength = 200)]
 	public string Reference { get; set; }
 
-	[Column(IsIgnore = true)]
-	public Dictionary<string, PersistedExecutionPointer> ExecutionPointers { get; set; } = new();
+	[JsonMap]
+	public Dictionary<string, TExecutionPointer> ExecutionPointers { get; set; } = new();
 }
