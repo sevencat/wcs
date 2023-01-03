@@ -19,9 +19,10 @@ internal class Program
 {
 	private static readonly NLog.Logger Log = NLog.LogManager.GetCurrentClassLogger();
 
-	public static void ConfigIoc(ContainerBuilder builder, ConfigurationManager cfg)
+	public static void ConfigIoc(ContainerBuilder builder, ConfigurationManager cfg, IServiceCollection sc)
 	{
 		builder.RegisterInstance(cfg).As<IConfiguration>();
+		builder.RegisterInstance(sc).As<IServiceCollection>();
 		builder.RegisterModule<SupportModule>();
 		builder.RegisterModule<DeviceModule>();
 		builder.RegisterModule<StorageModule>();
@@ -46,7 +47,10 @@ internal class Program
 		var curpath = AppDomain.CurrentDomain.BaseDirectory;
 		var wcsConfigFile = Path.Combine(curpath, "wcsconfig.json");
 		if (File.Exists(wcsConfigFile))
+		{
+			Log.Info("增加配置文件:wcsconfig.json");
 			config.AddJsonFile(wcsConfigFile);
+		}
 
 		var priConfigFile = Path.Combine(curpath, "pri.json");
 		if (File.Exists(priConfigFile))

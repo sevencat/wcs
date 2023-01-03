@@ -13,6 +13,12 @@ public class SupportModule : Module
 	{
 		builder.RegisterType<BeanFactory>().AsSelf().As<IBeanFactory>().SingleInstance();
 		builder.Register((IConfiguration config) => CreateDb(config)).SingleInstance();
+		builder.RegisterType<SupportInit>().AsSelf().As<IStartable>().AutoActivate().SingleInstance();
+	}
+
+	protected void ConfigWorkFlowCore(ContainerBuilder builder)
+	{
+		
 	}
 
 	public IFreeSql CreateDb(IConfiguration config)
