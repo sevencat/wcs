@@ -23,7 +23,7 @@ internal class Program
 	{
 		builder.RegisterInstance(cfg).As<IConfiguration>();
 		builder.RegisterInstance(sc).As<IServiceCollection>();
-		builder.RegisterModule<SupportModule>();
+		builder.RegisterModule(new SupportModule(sc));
 		builder.RegisterModule<DeviceModule>();
 		builder.RegisterModule<StorageModule>();
 	}
@@ -59,7 +59,7 @@ internal class Program
 			config.AddJsonFile(priConfigFile);
 		}
 
-		var afsp = new AutofacServiceProviderFactory(x => ConfigIoc(x, config));
+		var afsp = new AutofacServiceProviderFactory(x => ConfigIoc(x, config,builder.Services));
 		builder.Host.UseServiceProviderFactory(afsp);
 
 		builder.Services.Configure<ApiBehaviorOptions>(opt => opt.SuppressModelStateInvalidFilter = true);

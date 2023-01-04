@@ -1,5 +1,4 @@
 ﻿using Autofac;
-using fineyun.wcs.support.workflowcore.db;
 
 namespace fineyun.wcs.support;
 
@@ -18,12 +17,5 @@ public class SupportInit : IStartable
 	{
 		Log.Info("开始初始化");
 		var cf = _fsql.CodeFirst;
-		cf.SyncStructure<PersistedEvent>();
-		cf.SyncStructure<PersistedExecutionError>();
-		cf.SyncStructure<PersistedExecutionPointer>();
-		cf.SyncStructure<PersistedExtensionAttribute>();
-		cf.SyncStructure<PersistedSubscription>();
-		cf.SyncStructure<PersistedScheduledCommand>();
-		cf.SyncStructure<PersistedWorkflow>();
 	}
 }

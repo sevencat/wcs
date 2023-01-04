@@ -3,6 +3,8 @@ using fineyun.wcs.common;
 using fineyun.wcs.common.ext;
 using fineyun.wcs.support.db;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using WorkflowCore.Persistence.Freesql;
 
 namespace fineyun.wcs.support;
 
@@ -10,16 +12,24 @@ public class SupportModule : Module
 {
 	private static readonly NLog.Logger Log = NLog.LogManager.GetCurrentClassLogger();
 
+	private readonly IServiceCollection _serviceCollection;
+
+	public SupportModule(IServiceCollection sc)
+	{
+		_serviceCollection = sc;
+	}
+
 	protected override void Load(ContainerBuilder builder)
 	{
 		builder.RegisterType<BeanFactory>().AsSelf().As<IBeanFactory>().SingleInstance();
 		builder.Register((IConfiguration config) => CreateDb(config)).SingleInstance();
 		builder.RegisterType<SupportInit>().AsSelf().As<IStartable>().AutoActivate().SingleInstance();
+		ConfigWorkFlowCore(builder);
 	}
 
 	protected void ConfigWorkFlowCore(ContainerBuilder builder)
 	{
-		
+		_serviceCollection.AddWorkflow(x => x.UseFreeSql(true));
 	}
 
 	public IFreeSql CreateDb(IConfiguration config)

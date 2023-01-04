@@ -2,4 +2,5 @@
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
   &lt;Assembly Path="D:\java\nugetcache\microsoft.extensions.configuration\7.0.0\lib\net7.0\Microsoft.Extensions.Configuration.dll" /&gt;&#xD;
   &lt;Assembly Path="D:\java\nugetcache\autofac.extensions.dependencyinjection\8.0.0\lib\net6.0\Autofac.Extensions.DependencyInjection.dll" /&gt;&#xD;
+  &lt;Assembly Path="D:\java\nugetcache\nswag.aspnetcore\13.18.2\lib\net7.0\NSwag.AspNetCore.dll" /&gt;&#xD;
 &lt;/AssemblyExplorer&gt;</s:String></wpf:ResourceDictionary>
