@@ -19,11 +19,10 @@ internal class Program
 {
 	private static readonly NLog.Logger Log = NLog.LogManager.GetCurrentClassLogger();
 
-	public static void ConfigIoc(ContainerBuilder builder, ConfigurationManager cfg, IServiceCollection sc)
+	public static void ConfigIoc(ContainerBuilder builder, ConfigurationManager cfg)
 	{
 		builder.RegisterInstance(cfg).As<IConfiguration>();
-		builder.RegisterInstance(sc).As<IServiceCollection>();
-		builder.RegisterModule(new SupportModule(sc));
+		builder.RegisterModule<SupportModule>();
 		builder.RegisterModule<DeviceModule>();
 		builder.RegisterModule<StorageModule>();
 	}
@@ -59,7 +58,7 @@ internal class Program
 			config.AddJsonFile(priConfigFile);
 		}
 
-		var afsp = new AutofacServiceProviderFactory(x => ConfigIoc(x, config,builder.Services));
+		var afsp = new AutofacServiceProviderFactory(x => ConfigIoc(x, config));
 		builder.Host.UseServiceProviderFactory(afsp);
 
 		builder.Services.Configure<ApiBehaviorOptions>(opt => opt.SuppressModelStateInvalidFilter = true);

@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using fineyun.wcs.common;
 using fineyun.wcs.common.ext;
 using fineyun.wcs.support.db;
@@ -12,13 +13,6 @@ public class SupportModule : Module
 {
 	private static readonly NLog.Logger Log = NLog.LogManager.GetCurrentClassLogger();
 
-	private readonly IServiceCollection _serviceCollection;
-
-	public SupportModule(IServiceCollection sc)
-	{
-		_serviceCollection = sc;
-	}
-
 	protected override void Load(ContainerBuilder builder)
 	{
 		builder.RegisterType<BeanFactory>().AsSelf().As<IBeanFactory>().SingleInstance();
@@ -29,7 +23,9 @@ public class SupportModule : Module
 
 	protected void ConfigWorkFlowCore(ContainerBuilder builder)
 	{
-		_serviceCollection.AddWorkflow(x => x.UseFreeSql(true));
+		IServiceCollection services = new ServiceCollection();
+		services.AddWorkflow(x => x.UseFreeSql(true));
+		builder.Populate(services);
 	}
 
 	public IFreeSql CreateDb(IConfiguration config)
